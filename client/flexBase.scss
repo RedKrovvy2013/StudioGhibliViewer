@@ -1,0 +1,71 @@
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+header h3 {
+    flex-grow: 1;
+    text-align: center;
+}
+
+hr {
+    width: 100%; //hack for flex
+    border: 0;
+    border-top: 1px solid black;
+    margin: 0;
+}
+
+main {
+    flex-grow: 1;
+    width: 970px;
+    margin: 0 auto;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.icon.tomato {
+    width: 30px;
+}
+
+article h3 {
+    flex-grow: 1;
+    text-align: right;
+}
+
+p.description {
+    font-style: italic;
+    width: 75%;
+}
+
+section.details {
+    display: flex;
+    justify-content: center;
+}
+
+section.details p {
+    padding: 0 20px;
+}
+
+h4.list-label {
+    width: 100px;
+    text-align: right;
+}
+
+p.list {
+    padding-left: 20px;
+}
