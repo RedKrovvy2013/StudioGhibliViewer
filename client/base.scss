@@ -30,7 +30,8 @@ p.description {
     text-align: center;
 }
 
-.details-container span {
+.details-container div {
+    display: inline;
     font-size: 16px;
     padding: 0 20px;
 }
