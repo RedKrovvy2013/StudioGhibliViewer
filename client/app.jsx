@@ -3,14 +3,12 @@ var ReactDOM = require('react-dom')
 var {Route, Router, IndexRoute, hashHistory} = require('react-router')
 
 var Header = require('./views/Header')
-var Film = require('./views/Film')
+var FilmsContainer = require('./containers/FilmsContainer')
 
 ReactDOM.render(
     <div>
         <Header />
-        <div className="container">
-            <Film />
-        </div>
+        <FilmsContainer />
     </div>,
   document.getElementById('app')
 )
