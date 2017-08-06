@@ -6,7 +6,12 @@ var TaskRunner = require('./../../util/TaskRunner')
 function createRequestTask(url, property, component) {
     return function(done) {
         axios.get(url).then(function(response) {
-            component.addData(response.data[property])
+            if(response.data.constructor === Array) {
+                // case where data is a collection, like for /people
+                component.setData(response.data)
+            } else {
+                component.addData(response.data[property])
+            }
             done()
         }).catch(function() { done() })
         //ignoring failure; in context it is just a data item not gotten
@@ -22,8 +27,18 @@ function getDataAndPresent(urls, property) {
             },
 
             runningData: [],
+
             addData: function(item) {
                 this.runningData.push(item)
+                this.maybeSetState()
+            },
+
+            setData: function(data) {
+                this.runningData = data.map( item => item[property] )
+                this.maybeSetState()
+            },
+
+            maybeSetState: function() {
                 if(this.taskRunner.tasks.length === 0) {
                     this.setState({ data: this.runningData })
                 }
@@ -41,7 +56,7 @@ function getDataAndPresent(urls, property) {
             render: function() {
                 const { state: { data } } = this
                 return (
-                    <View items={data} />
+                    <View items={data} {...this.props} />
                 )
             }
 
