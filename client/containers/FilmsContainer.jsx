@@ -24,8 +24,8 @@ var FilmsContainer = React.createClass({
         return (
             <main>
                 {films.map(function(film, index) {
-                    var details = [{director: film.director},
-                                       {producer: film.producer}]
+                    var details = [{key: "Director", value: film.director},
+                                   {key: "Producer", value: film.producer}]
                     return <Film title={film.title}
                                  rtScore={film.rt_score}
                                  farSideData={film.release_date}

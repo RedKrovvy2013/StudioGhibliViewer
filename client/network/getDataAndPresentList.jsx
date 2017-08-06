@@ -18,7 +18,7 @@ function createRequestTask(url, property, component) {
     }
 }
 
-function getDataAndPresent(urls, property) {
+function getDataAndPresentList(urls, property) {
     return function(View) {
         return React.createClass({
 
@@ -72,4 +72,4 @@ function getDataAndPresent(urls, property) {
     }
 }
 
-module.exports = getDataAndPresent
+module.exports = getDataAndPresentList
