@@ -1,8 +1,8 @@
 var React = require('react')
 
-var Details = function(props) {
+var GhibliDetails = function(props) {
     return (
-        <section className="details">
+        <section className="ghibli-details">
             {function() {
                 var elems = []
                 for(var i=0; i < props.items.length; ++i) {
@@ -19,4 +19,4 @@ var Details = function(props) {
     )
 }
 
-module.exports = Details
+module.exports = GhibliDetails

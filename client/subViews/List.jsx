@@ -2,10 +2,10 @@ var React = require('react')
 
 var List = function(props) {
     return (
-        <section className="label-and-list">
-            <h4 className="list-label">
-                {props.title}
-            </h4>
+        <details className="label-and-list">
+            <summary>
+                <h4 className="list-label">{props.title}</h4>
+            </summary>
             <p className="list">
                 {function() {
                     var elems = []
@@ -21,7 +21,7 @@ var List = function(props) {
                     return elems
                 }()}
             </p>
-        </section>
+        </details>
     )
 }
 

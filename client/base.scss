@@ -52,24 +52,33 @@ p.description {
     width: 75%;
 }
 
-section.details {
+section.ghibli-details {
     display: flex;
     justify-content: center;
 }
 
-section.details p {
+section.ghibli-details p {
     padding: 0 20px;
 }
 
-h4.list-label {
-    width: 100px;
-    text-align: right;
-}
+section.story-details {
 
-p.list {
-    padding-left: 20px;
-}
+    flex-direction: column;
 
-p.list span.divider {
-    padding: 0 10px;
+    details summary {
+        padding: 10px;
+    }
+
+    details h4 {
+        display: inline;
+        cursor: pointer;
+    }
+
+    p.list {
+        padding-left: 20px;
+    }
+
+    p.list span.divider {
+        padding: 0 10px;
+    }
 }

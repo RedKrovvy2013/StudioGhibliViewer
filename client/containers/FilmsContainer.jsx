@@ -22,16 +22,22 @@ var FilmsContainer = React.createClass({
     render: function() {
         const { state: {films} } = this
         return (
-            <div className="container">
+            <main>
                 {films.map(function(film, index) {
                     var details = [{director: film.director},
                                        {producer: film.producer}]
-                    return <Film description={film.description}
+                    return <Film title={film.title}
+                                 rtScore={film.rt_score}
+                                 farSideData={film.release_date}
+                                 description={film.description}
                                  details={details}
                                  people={film.people}
+                                 species={film.species}
+                                 locations={film.locations}
+                                 vehicles={film.vehicles}
                                  key={index} />
                 })}
-            </div>
+            </main>
         )
     }
 
