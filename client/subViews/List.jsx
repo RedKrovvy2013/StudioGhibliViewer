@@ -1,4 +1,5 @@
 var React = require('react')
+var {Link} = require('react-router')
 
 var List = function(props) {
     return (
@@ -13,7 +14,9 @@ var List = function(props) {
                         var isLast = i === props.items.length - 1
                         elems.push(
                             <span key={i}>
-                                <a href="#">{props.items[i]} </a>
+                                <Link to={"/people#"+props.items[i].id}>
+                                    {props.items[i].value}
+                                </Link>
                                 {!isLast && <span className="divider">|</span>}
                             </span>
                         )

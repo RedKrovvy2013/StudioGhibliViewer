@@ -26,7 +26,7 @@ var PeopleContainer = React.createClass({
                 {people.map(function(person, index) {
                     var details = [{hair_color: person.hair_color},
                                        {eye_color: person.eye_color}]
-                    return <Person name={person.name}
+                    return <Person name={person.name} id={person.id}
                                  species={person.species}
                                  gender={person.gender}
                                  farSideData={person.age}

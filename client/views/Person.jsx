@@ -10,7 +10,8 @@ var Person = function(props) {
 
     return (
         <article>
-            <TitleAndSideData title={props.name} farSideData={props.farSideData}>
+            <TitleAndSideData title={props.name} id={props.id}
+                              farSideData={props.farSideData}>
                 <span> (Human {props.gender})</span>
             </TitleAndSideData>
             <GhibliDetails items={props.details} />

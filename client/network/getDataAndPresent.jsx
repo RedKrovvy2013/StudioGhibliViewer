@@ -10,7 +10,7 @@ function createRequestTask(url, property, component) {
                 // case where data is a collection, like for /people
                 component.setData(response.data)
             } else {
-                component.addData(response.data[property])
+                component.addDataItem(response.data)
             }
             done()
         }).catch(function() { done() })
@@ -28,13 +28,21 @@ function getDataAndPresent(urls, property) {
 
             runningData: [],
 
-            addData: function(item) {
-                this.runningData.push(item)
+            addDataItem: function(item) {
+                this.runningData.push({
+                    value: item[property],
+                    id: item.id
+                })
                 this.maybeSetState()
             },
 
             setData: function(data) {
-                this.runningData = data.map( item => item[property] )
+                this.runningData = data.map( item => {
+                     return {
+                         value: item[property],
+                         id: item.id
+                     }
+                 })
                 this.maybeSetState()
             },
 
