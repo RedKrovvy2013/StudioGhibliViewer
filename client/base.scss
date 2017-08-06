@@ -61,24 +61,19 @@ section.ghibli-details p {
     padding: 0 20px;
 }
 
-section.story-details {
+details summary {
+    padding: 10px;
+}
 
-    flex-direction: column;
+details h4 {
+    display: inline;
+    cursor: pointer;
+}
 
-    details summary {
-        padding: 10px;
-    }
+p.list {
+    padding-left: 20px;
+}
 
-    details h4 {
-        display: inline;
-        cursor: pointer;
-    }
-
-    p.list {
-        padding-left: 20px;
-    }
-
-    p.list span.divider {
-        padding: 0 10px;
-    }
+p.list span.divider {
+    padding: 0 10px;
 }

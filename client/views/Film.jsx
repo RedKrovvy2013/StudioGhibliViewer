@@ -15,7 +15,6 @@ var Film = function(props) {
             </TitleAndSideData>
             <Description value={props.description} />
             <GhibliDetails items={props.details} />
-            <section className="story-details">
                 {function() {
                     var FetchedList = getDataAndPresent(props.people, "name")(List)
                     return <FetchedList title="People" />
@@ -32,7 +31,6 @@ var Film = function(props) {
                     var FetchedList = getDataAndPresent(props.vehicles, "name")(List)
                     return <FetchedList title="Vehicles" />
                 }()}
-            </section>
         </article>
     )
 }
