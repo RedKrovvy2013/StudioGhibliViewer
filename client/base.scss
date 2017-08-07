@@ -1,10 +1,14 @@
 
-html, body {
+html, body, #app, .router-container {
     height: 100%;
 }
 
 body {
     margin: 0;
+    overflow: hidden;
+}
+
+.router-container {
     display: flex;
     flex-direction: column;
 }
@@ -12,6 +16,17 @@ body {
 header {
     display: flex;
     flex-direction: row;
+
+    //now flex as an item, not container
+    flex: 0 0 auto;
+}
+
+main {
+    flex: 1 1 auto;
+    width: 90%;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 a.active {
@@ -28,12 +43,6 @@ hr {
     border: 0;
     border-top: 1px solid black;
     margin: 0;
-}
-
-main {
-    flex-grow: 1;
-    width: 970px;
-    margin: 0 auto;
 }
 
 section {
@@ -56,6 +65,7 @@ section.title-and-side-data>span {
 article h3 {
     flex-grow: 1;
     text-align: right;
+    padding-right: 20px;
 }
 
 p.description {

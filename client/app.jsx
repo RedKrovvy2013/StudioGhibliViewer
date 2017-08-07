@@ -22,7 +22,7 @@ var LoadedVehicles = generateLoadedViews("vehicles", Vehicle)
 
 ReactDOM.render(
         <BrowserRouter>
-            <div>
+            <div className="router-container">
                 <header>
                         <h3><Link to="/films">Films</Link></h3>
                         <h3><Link to="/people">People</Link></h3>
@@ -32,16 +32,11 @@ ReactDOM.render(
                 </header>
                 <hr />
                 <Route exact path="/" component={LoadedFilms} />
-                <Route path="/films" component={LoadedFilms} />
-                <Route path="/films/:id" component={LoadedFilms} />
-                <Route path="/people" component={LoadedPeople} />
-                <Route path="/people/:id" component={LoadedPeople} />
-                <Route path="/species" component={LoadedSpecies} />
-                <Route path="/species/:id" component={LoadedSpecies} />
-                <Route path="/locations" component={LoadedLocations} />
-                <Route path="/locations/:id" component={LoadedLocations} />
-                <Route path="/vehicles" component={LoadedVehicles} />
-                <Route path="/vehicles/:id" component={LoadedVehicles} />
+                <Route path="/films/:id?" component={LoadedFilms} />
+                <Route path="/people/:id?" component={LoadedPeople} />
+                <Route path="/species/:id?" component={LoadedSpecies} />
+                <Route path="/locations/:id?" component={LoadedLocations} />
+                <Route path="/vehicles/:id?" component={LoadedVehicles} />
             </div>
         </BrowserRouter>,
   document.getElementById('app')

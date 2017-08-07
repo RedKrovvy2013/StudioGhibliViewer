@@ -34,7 +34,12 @@ var ViewsLoader = createReactClass({
         return (
             <main>
                 {data.map(function(item, index) {
-                    return <ViewClass {...item} key={index} />
+                    return (
+                        <div key={index}>
+                            <ViewClass {...item} />
+                            <hr />
+                        </div>
+                    )
                 })}
             </main>
         )

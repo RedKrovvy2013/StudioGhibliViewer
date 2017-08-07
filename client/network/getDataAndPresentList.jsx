@@ -1,6 +1,7 @@
 import React from 'React'
 import axios from 'axios'
 import createReactClass from 'create-react-class'
+import validUrl from 'valid-url'
 
 import TaskRunner from './../../util/TaskRunner'
 
@@ -57,7 +58,9 @@ function getDataAndPresentList(urls, property) {
             componentDidMount: function() {
                 this.taskRunner = new TaskRunner()
                 urls.forEach((url) => {
-                    this.taskRunner.push(createRequestTask(url, property, this))
+                    if(validUrl.isWebUri(url)) {
+                      this.taskRunner.push(createRequestTask(url, property, this))
+                    }
                 })
                 // use arrow fx to bind this
             },
