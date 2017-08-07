@@ -17,7 +17,11 @@ var Film = function(props) {
         <article>
             <TitleAndSideData title={props.title} id={props.id}
                               farSideData={props.release_date}>
-<span><img src="http://localhost:8080/images/tomato.png" className="icon tomato"/> {props.rt_score}%</span>
+                <span>
+                    <img src="http://localhost:8080/images/tomato.png"
+                    className="icon tomato" alt="rotten tomato score"/>
+                        {props.rt_score}%
+                </span>
             {/* TODO: get rid of hack to make images work while nav'ing to url/:id */}
             </TitleAndSideData>
             <Description value={props.description} />

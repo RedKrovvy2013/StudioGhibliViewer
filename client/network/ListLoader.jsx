@@ -4,6 +4,8 @@ import createReactClass from 'create-react-class'
 
 import TaskRunner from './../../util/TaskRunner'
 
+// NOTE: keeping around; will be nice to use in future
+
 function createRequestTask(url, property, component) {
     return function(done) {
         axios.get(url).then(function(response) {

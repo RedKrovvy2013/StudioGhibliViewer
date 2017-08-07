@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 var {Route, Router, BrowserRouter, Link} = require('react-router-dom')
 
-import getDataAndPresentViews from './network/getDataAndPresentViews'
 import Person from './views/Person'
 import Film from './views/Film'
-
+import Specie from './views/Specie'
+import Location from './views/Location'
+import Vehicle from './views/Vehicle'
 import ViewsLoader from './network/ViewsLoader'
 
 function generateLoadedViews(uri, ViewClass) {
@@ -13,16 +14,11 @@ function generateLoadedViews(uri, ViewClass) {
         <ViewsLoader uri={uri} ViewClass={ViewClass} match={match} />
     )
 }
-
 var LoadedPeople = generateLoadedViews("people", Person)
 var LoadedFilms = generateLoadedViews("films", Film)
-
-// var LoadedPeople = ({ match }) => (
-//     <ViewsLoader uri="people" ViewClass={Person} match={match} />
-// )
-// var LoadedFilms = ({ match }) => (
-//     <ViewsLoader uri="films" ViewClass={Film} match={match} />
-// )
+var LoadedSpecies = generateLoadedViews("species", Specie)
+var LoadedLocations = generateLoadedViews("locations", Location)
+var LoadedVehicles = generateLoadedViews("vehicles", Vehicle)
 
 ReactDOM.render(
         <BrowserRouter>
@@ -30,6 +26,9 @@ ReactDOM.render(
                 <header>
                         <h3><Link to="/films">Films</Link></h3>
                         <h3><Link to="/people">People</Link></h3>
+                        <h3><Link to="/species">Species</Link></h3>
+                        <h3><Link to="/locations">Locations</Link></h3>
+                        <h3><Link to="/vehicles">Vehicles</Link></h3>
                 </header>
                 <hr />
                 <Route exact path="/" component={LoadedFilms} />
@@ -37,28 +36,13 @@ ReactDOM.render(
                 <Route path="/films/:id" component={LoadedFilms} />
                 <Route path="/people" component={LoadedPeople} />
                 <Route path="/people/:id" component={LoadedPeople} />
+                <Route path="/species" component={LoadedSpecies} />
+                <Route path="/species/:id" component={LoadedSpecies} />
+                <Route path="/locations" component={LoadedLocations} />
+                <Route path="/locations/:id" component={LoadedLocations} />
+                <Route path="/vehicles" component={LoadedVehicles} />
+                <Route path="/vehicles/:id" component={LoadedVehicles} />
             </div>
-            {/* <div> */}
-            {/* <Route path="/" component={Header}> */}
-                {/* <Route exact path="/" component={Header}/> */}
-                {/* <Route exact path="/" render={()=><ViewsLoader uri="films" ViewClass={Film} />} /> */}
-                {/* <Route path="/films" render={()=><ViewsLoader uri="films" ViewClass={Film} />} /> */}
-                {/* <Route path="/people/:id" render={()=><ViewsLoader uri="people" ViewClass={Person} />} /> */}
-                {/* <Route path="/people/:id" component={LoadedPeople} /> */}
-                {/* <Route path="/films" render={()=><ListLoader urls={urls} property="name"
-                            ListClass={List} title="People" />} /> */}
-                {/* <Route path="/films" component={FilmsContainer} /> */}
-            {/* </Route> */}
-            {/* </div> */}
         </BrowserRouter>,
-    // (function() {
-    //     var FetchedPeople = getDataAndPresentViews('people')(Person)
-    //     return <FetchedPeople />
-    // }()),
-    // (function() {
-    //     var FetchedFilms = getDataAndPresentViews('films')(Film)
-    //     return <FetchedFilms />
-    // }()),
-    // <ViewsLoader uri="films" ViewClass={Film} />,
   document.getElementById('app')
 )
