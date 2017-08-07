@@ -49,12 +49,17 @@ function getDataAndPresentList(urls, property) {
             },
 
             maybeSetState: function() {
-                if(this.taskRunner.tasks.length === 0) {
+                if(this.taskRunner.tasks.length === 0 && !this.isUnmounted) {
                     this.setState({ data: this.runningData })
                 }
             },
 
+            componentWillUnmount: function() {
+                this.isUnmounted = true
+            },
+
             taskRunner: null,
+            isUnmounted: false,
             componentDidMount: function() {
                 this.taskRunner = new TaskRunner()
                 urls.forEach((url) => {
