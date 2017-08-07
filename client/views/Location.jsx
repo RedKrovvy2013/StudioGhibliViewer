@@ -2,14 +2,10 @@ import React from 'react'
 
 import TitleAndSideData from './../subViews/TitleAndSideData'
 import Description from './../subViews/Description'
-import GhibliDetails from './../subViews/GhibliDetails'
 import List from './../subViews/List'
 import getDataAndPresentList from './../network/getDataAndPresentList'
 
 var Location = function(props) {
-
-    var details = [{ key: "Climate", value: props.climate},
-                   { key: "Terrain", value: props.terrain}]
     return (
         <article>
             <TitleAndSideData title={props.name} id={props.id}>
@@ -19,7 +15,10 @@ var Location = function(props) {
                     {props.surface_water}
                 </span>
             </TitleAndSideData>
-            <GhibliDetails items={details} />
+            <section className="ghibli-details">
+                <p>Climate: {props.climate}</p>
+                <p>Terrain: {props.terrain}</p>
+            </section>
             {function() {
                 var FetchedList = getDataAndPresentList(props.residents, "name")(List)
                 return <FetchedList title="Residents" uri="people" />

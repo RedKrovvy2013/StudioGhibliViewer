@@ -2,7 +2,6 @@ import React from 'react'
 
 import TitleAndSideData from './../subViews/TitleAndSideData'
 import Description from './../subViews/Description'
-import GhibliDetails from './../subViews/GhibliDetails'
 import List from './../subViews/List'
 import getDataAndPresentList from './../network/getDataAndPresentList'
 
@@ -25,25 +24,28 @@ var Film = function(props) {
             {/* TODO: get rid of hack to make images work while nav'ing to url/:id */}
             </TitleAndSideData>
             <Description value={props.description} />
-            <GhibliDetails items={details} />
-                {function() {
-                    var FetchedList = getDataAndPresentList(props.people, "name")(List)
-                    return <FetchedList title="People" uri="people" />
-                }()}
-                {/* <ListLoader urls={props.people} property="name" filmTitle={props.title}
-                            ListClass={List} title="People" /> */}
-                {function() {
-                    var FetchedList = getDataAndPresentList(props.species, "name")(List)
-                    return <FetchedList title="Species" uri="species" />
-                }()}
-                {function() {
-                    var FetchedList = getDataAndPresentList(props.locations, "name")(List)
-                    return <FetchedList title="Locations" uri="locations" />
-                }()}
-                {function() {
-                    var FetchedList = getDataAndPresentList(props.vehicles, "name")(List)
-                    return <FetchedList title="Vehicles" uri="vehicles" />
-                }()}
+            <section className="ghibli-details">
+                <p>Director: {props.director}</p>
+                <p>Producer: {props.producer}</p>
+            </section>
+            {function() {
+                var FetchedList = getDataAndPresentList(props.people, "name")(List)
+                return <FetchedList title="People" uri="people" />
+            }()}
+            {/* <ListLoader urls={props.people} property="name" filmTitle={props.title}
+                        ListClass={List} title="People" /> */}
+            {function() {
+                var FetchedList = getDataAndPresentList(props.species, "name")(List)
+                return <FetchedList title="Species" uri="species" />
+            }()}
+            {function() {
+                var FetchedList = getDataAndPresentList(props.locations, "name")(List)
+                return <FetchedList title="Locations" uri="locations" />
+            }()}
+            {function() {
+                var FetchedList = getDataAndPresentList(props.vehicles, "name")(List)
+                return <FetchedList title="Vehicles" uri="vehicles" />
+            }()}
         </article>
     )
 }

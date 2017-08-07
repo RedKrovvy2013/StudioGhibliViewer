@@ -15,7 +15,6 @@ var List = function(props) {
                         elems.push(
                             <span key={i}>
                                 <Link to={ {pathname: "/"+props.uri+"/"+props.items[i].id} }>
-                                {/* <Link to="/people"> */}
                                     {props.items[i].value}
                                 </Link>
                                 {!isLast && <span className="divider">|</span>}

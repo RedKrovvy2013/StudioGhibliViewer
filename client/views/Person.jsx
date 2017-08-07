@@ -1,25 +1,26 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import TitleAndSideData from './../subViews/TitleAndSideData'
 import Description from './../subViews/Description'
-import GhibliDetails from './../subViews/GhibliDetails'
 import List from './../subViews/List'
 import getDataAndPresentList from './../network/getDataAndPresentList'
-import getDataAndPresentSpan from './../network/getDataAndPresentSpan'
+import DataItemLoader from './../network/DataItemLoader'
+import GhibliLink from './../subViews/GhibliLink'
 
 var Person = function(props) {
-
-    var details = [{ key: "Hair Color", value: props.hair_color},
-                   { key: "Eye Color", value: props.eye_color}]
     return (
         <article>
             <TitleAndSideData title={props.name} id={props.id}>
-                {function() {
-                  var FetchedSpan = getDataAndPresentSpan(props.species, "name")
-                  return <span> (<FetchedSpan /> {props.gender})</span>
-                }()}
+              <span>
+                (<DataItemLoader ViewClass={GhibliLink} url={props.species}
+                                property="name" uri="species" /> {props.gender})</span>
+                 {/* url is for fetching, uri is for building link */}
             </TitleAndSideData>
-            <GhibliDetails items={details} />
+            <section className="ghibli-details">
+                <p>Hair Color: {props.hair_color}</p>
+                <p>Eye Color: {props.eye_color}</p>
+            </section>
             {function() {
                 var FetchedList = getDataAndPresentList(props.films, "title")(List)
                 return <FetchedList title="Films" uri="films" />
