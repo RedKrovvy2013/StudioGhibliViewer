@@ -1,7 +1,7 @@
-var React = require('React')
-var axios = require('axios')
+import React from 'React'
+import axios from 'axios'
 
-var TaskRunner = require('./../../util/TaskRunner')
+import TaskRunner from './../../util/TaskRunner'
 
 function createRequestTask(url, property, component) {
     return function(done) {
@@ -19,7 +19,7 @@ function createRequestTask(url, property, component) {
 }
 
 function getDataAndPresentList(urls, property) {
-    return function(View) {
+    return function(List) {
         return React.createClass({
 
             getInitialState: function() {
@@ -64,7 +64,7 @@ function getDataAndPresentList(urls, property) {
             render: function() {
                 const { state: { data } } = this
                 return (
-                    <View items={data} {...this.props} />
+                    <List items={data} {...this.props} />
                 )
             }
 
@@ -72,4 +72,4 @@ function getDataAndPresentList(urls, property) {
     }
 }
 
-module.exports = getDataAndPresentList
+export default getDataAndPresentList

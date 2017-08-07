@@ -1,8 +1,8 @@
-var React = require('React')
-var axios = require('axios')
+import React from 'React'
+import axios from 'axios'
 
 const {ghibliDomain} = require('./../constants')
-var Film = require('./../views/Film')
+import Film from './../views/Film'
 
 var FilmsContainer = React.createClass({
 
@@ -43,4 +43,4 @@ var FilmsContainer = React.createClass({
 
 })
 
-module.exports = FilmsContainer
+export default FilmsContainer

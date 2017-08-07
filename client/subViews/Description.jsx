@@ -1,4 +1,4 @@
-var React = require('react')
+import React from 'react'
 
 var Description = function(props) {
     return (
@@ -8,4 +8,4 @@ var Description = function(props) {
     )
 }
 
-module.exports = Description
+export default Description

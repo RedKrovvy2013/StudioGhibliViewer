@@ -1,4 +1,4 @@
-var React = require('react')
+import React from 'react'
 
 var TitleAndSideData = function(props) {
     return (
@@ -10,4 +10,4 @@ var TitleAndSideData = function(props) {
     )
 }
 
-module.exports = TitleAndSideData
+export default TitleAndSideData

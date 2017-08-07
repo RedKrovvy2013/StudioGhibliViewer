@@ -1,5 +1,5 @@
-var React = require('react')
-var {Link} = require('react-router')
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 var List = function(props) {
     return (
@@ -14,7 +14,8 @@ var List = function(props) {
                         var isLast = i === props.items.length - 1
                         elems.push(
                             <span key={i}>
-                                <Link to={"/people#"+props.items[i].id}>
+                                <Link to={ {pathname: "/"+props.uri+"/"+props.items[i].id} }>
+                                {/* <Link to="/people"> */}
                                     {props.items[i].value}
                                 </Link>
                                 {!isLast && <span className="divider">|</span>}
@@ -28,4 +29,4 @@ var List = function(props) {
     )
 }
 
-module.exports = List
+export default List

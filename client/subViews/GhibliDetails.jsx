@@ -1,4 +1,4 @@
-var React = require('react')
+import React from 'react'
 
 var GhibliDetails = function(props) {
     return (
@@ -17,4 +17,4 @@ var GhibliDetails = function(props) {
     )
 }
 
-module.exports = GhibliDetails
+export default GhibliDetails

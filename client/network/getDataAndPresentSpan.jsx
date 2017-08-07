@@ -1,5 +1,5 @@
-var React = require('React')
-var axios = require('axios')
+import React from 'React'
+import axios from 'axios'
 
 function getDataAndPresentSpan(url, property) {
     return React.createClass({
@@ -26,4 +26,4 @@ function getDataAndPresentSpan(url, property) {
     })
 }
 
-module.exports = getDataAndPresentSpan
+export default getDataAndPresentSpan

@@ -1,5 +1,5 @@
-var React = require('react')
-var {Link} = require('react-router')
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 var Header = function(props) {
     return (
@@ -17,4 +17,4 @@ var Header = function(props) {
     )
 }
 
-module.exports = Header
+export default Header

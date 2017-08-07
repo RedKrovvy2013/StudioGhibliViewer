@@ -1,8 +1,8 @@
-var React = require('React')
-var axios = require('axios')
+import React from 'React'
+import axios from 'axios'
 
-const {ghibliDomain} = require('./../constants')
-var Person = require('./../views/Person')
+import {ghibliDomain} from './../constants'
+import Person from './../views/Person'
 
 var PeopleContainer = React.createClass({
 
@@ -40,4 +40,4 @@ var PeopleContainer = React.createClass({
 
 })
 
-module.exports = PeopleContainer
+export default PeopleContainer

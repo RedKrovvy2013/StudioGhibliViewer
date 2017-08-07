@@ -1,41 +1,68 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var {Route, Router, IndexRoute, browserHistory} = require('react-router')
+import React from 'react'
+import ReactDOM from 'react-dom'
+var {Route, Router, BrowserRouter, Link} = require('react-router-dom')
 
-var Header = require('./views/Header')
-var FilmsContainer = require('./containers/FilmsContainer')
-var PeopleContainer = require('./containers/PeopleContainer')
+import Header from './views/Header'
+import FilmsContainer from './containers/FilmsContainer'
+import PeopleContainer from './containers/PeopleContainer'
 
-//adapted from:
-//https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
-function hashLinkScroll() {
-  const { hash } = window.location;
-  if (hash !== '') {
-    // Push onto callback queue so it runs after the DOM is updated,
-    // this is required when navigating from a different page so that
-    // the element is rendered on the page before trying to getElementById.
-    var intervalId = setInterval(() => {
-        const id = hash.replace('#', '')
-        const element = document.getElementById(id)
-        if (element) {
-            element.scrollIntoView()
-            clearInterval(intervalId)
-        }
-    }, 100)
-    //having to keep checking, as data, and resultant anchors,
-    //are populated by ajax request
-  }
+import getDataAndPresentViews from './network/getDataAndPresentViews'
+import Person from './views/Person'
+import Film from './views/Film'
+
+import ViewsLoader from './network/ViewsLoader'
+
+function generateLoadedViews(uri, ViewClass) {
+    return ({ match }) => (
+        <ViewsLoader uri={uri} ViewClass={ViewClass} match={match} />
+    )
 }
 
+var LoadedPeople = generateLoadedViews("people", Person)
+var LoadedFilms = generateLoadedViews("films", Film)
+
+// var LoadedPeople = ({ match }) => (
+//     <ViewsLoader uri="people" ViewClass={Person} match={match} />
+// )
+// var LoadedFilms = ({ match }) => (
+//     <ViewsLoader uri="films" ViewClass={Film} match={match} />
+// )
+
 ReactDOM.render(
-    <div>
-        <Router history={browserHistory} onUpdate={hashLinkScroll}>
-          <Route path="/" component={Header}>
-            <IndexRoute component={FilmsContainer} />
-            <Route path="films" component={FilmsContainer} />
-            <Route path="people" component={PeopleContainer} />
-          </Route>
-        </Router>
-    </div>,
+        <BrowserRouter>
+            <div>
+                <header>
+                        <h3><Link to="/films">Films</Link></h3>
+                        <h3><Link to="/people">People</Link></h3>
+                </header>
+                <hr />
+                <Route exact path="/" component={LoadedFilms} />
+                <Route path="/films" component={LoadedFilms} />
+                <Route path="/films/:id" component={LoadedFilms} />
+                <Route path="/people" component={LoadedPeople} />
+                <Route path="/people/:id" component={LoadedPeople} />
+            </div>
+            {/* <div> */}
+            {/* <Route path="/" component={Header}> */}
+                {/* <Route exact path="/" component={Header}/> */}
+                {/* <Route exact path="/" render={()=><ViewsLoader uri="films" ViewClass={Film} />} /> */}
+                {/* <Route path="/films" render={()=><ViewsLoader uri="films" ViewClass={Film} />} /> */}
+                {/* <Route path="/people/:id" render={()=><ViewsLoader uri="people" ViewClass={Person} />} /> */}
+                {/* <Route path="/people/:id" component={LoadedPeople} /> */}
+                {/* <Route path="/films" render={()=><ListLoader urls={urls} property="name"
+                            ListClass={List} title="People" />} /> */}
+                {/* <Route path="/films" component={FilmsContainer} /> */}
+            {/* </Route> */}
+            {/* </div> */}
+        </BrowserRouter>,
+    // (function() {
+    //     var FetchedPeople = getDataAndPresentViews('people')(Person)
+    //     return <FetchedPeople />
+    // }()),
+    // (function() {
+    //     var FetchedFilms = getDataAndPresentViews('films')(Film)
+    //     return <FetchedFilms />
+    // }()),
+    // <ViewsLoader uri="films" ViewClass={Film} />,
   document.getElementById('app')
 )
