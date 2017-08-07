@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import createReactClass from 'create-react-class'
 
 import {ghibliDomain} from './../constants'
 
 function getDataAndPresentViews(uri) {
     return function(View) {
-        return React.createClass({
+        return createReactClass({
 
             getInitialState: function() {
                 return { data: [] }

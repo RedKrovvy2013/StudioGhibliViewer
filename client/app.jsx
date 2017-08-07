@@ -2,10 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 var {Route, Router, BrowserRouter, Link} = require('react-router-dom')
 
-import Header from './views/Header'
-import FilmsContainer from './containers/FilmsContainer'
-import PeopleContainer from './containers/PeopleContainer'
-
 import getDataAndPresentViews from './network/getDataAndPresentViews'
 import Person from './views/Person'
 import Film from './views/Film'

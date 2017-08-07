@@ -1,5 +1,6 @@
 import React from 'React'
 import axios from 'axios'
+import createReactClass from 'create-react-class'
 
 import TaskRunner from './../../util/TaskRunner'
 
@@ -20,7 +21,7 @@ function createRequestTask(url, property, component) {
 
 function getDataAndPresentList(urls, property) {
     return function(List) {
-        return React.createClass({
+        return createReactClass({
 
             getInitialState: function() {
                 return { data: [] }

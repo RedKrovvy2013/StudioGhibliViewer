@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
+import createReactClass from 'create-react-class'
 
 import {ghibliDomain} from './../constants'
 
-var ViewsLoader = React.createClass({
+var ViewsLoader = createReactClass({
 
     getInitialState: function() {
         return { data: [] }

@@ -1,5 +1,6 @@
 import React from 'React'
 import axios from 'axios'
+import createReactClass from 'create-react-class'
 
 import TaskRunner from './../../util/TaskRunner'
 
@@ -20,7 +21,7 @@ function createRequestTask(url, property, component) {
 
 //NOTE: only works when creating a new class per instance, else
 //      runningData and taskRunner will be shared across instances
-var ListLoader = React.createClass({
+var ListLoader = createReactClass({
 
     getInitialState: function() {
         return { data: [] }

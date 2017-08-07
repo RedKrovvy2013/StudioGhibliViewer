@@ -1,8 +1,9 @@
 import React from 'React'
 import axios from 'axios'
+import createReactClass from 'create-react-class'
 
 function getDataAndPresentSpan(url, property) {
-    return React.createClass({
+    return createReactClass({
 
         getInitialState: function() {
             return { data: "" }
