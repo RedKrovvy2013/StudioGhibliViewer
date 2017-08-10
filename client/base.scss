@@ -33,6 +33,15 @@ a.active {
     text-decoration: underline;
 }
 
+.list a {
+    padding-right: 20px;
+    background: url('../../images/divider.png') right 10px center repeat-y;
+}
+
+.list a:last-child {
+    background: none;
+}
+
 header h3 {
     flex-grow: 1;
     text-align: center;

@@ -13,12 +13,10 @@ var List = function(props) {
                     for(var i=0; i < props.items.length; ++i) {
                         var isLast = i === props.items.length - 1
                         elems.push(
-                            <span key={i}>
-                                <Link to={ {pathname: "/"+props.uri+"/"+props.items[i].id} }>
+                                <Link to={ {pathname: "/"+props.uri+"/"+props.items[i].id} }
+                                      key={i} >
                                     {props.items[i].value}
                                 </Link>
-                                {!isLast && <span className="divider">|</span>}
-                            </span>
                         )
                     }
                     return elems
