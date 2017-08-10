@@ -9,6 +9,12 @@ import Location from './views/Location'
 import Vehicle from './views/Vehicle'
 import ViewsLoader from './network/ViewsLoader'
 
+var MobileDetect = require('mobile-detect'),
+    md = new MobileDetect(window.navigator.userAgent)
+if(md.mobile()) {
+    $('html').addClass('mobile')
+}
+
 function generateLoadedViews(uri, ViewClass) {
     return ({ match }) => (
         <ViewsLoader uri={uri} ViewClass={ViewClass} match={match} />

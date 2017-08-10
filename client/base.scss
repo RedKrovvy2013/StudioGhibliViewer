@@ -1,4 +1,13 @@
 
+html {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+html.mobile {
+    font-size: 25px;
+}
+
 html, body, #app, .router-container {
     height: 100%;
 }
@@ -6,6 +15,37 @@ html, body, #app, .router-container {
 body {
     margin: 0;
     overflow: hidden;
+    font-size: 1.4rem;
+}
+
+p, a {
+    margin: .7rem 0;
+}
+
+$h1_height: 3.6rem;
+h1 {
+    font-size: $h1_height;
+    margin: $h1_height * .5 0;
+}
+html.mobile h1 {
+    font-size: $h1_height * .85;
+    margin: $h1_height * .5 * .85 0;
+}
+
+$h3_height: 2.4rem;
+h3 {
+    font-size: $h3_height;
+    margin: $h3_height * .5 0;
+}
+html.mobile h3 {
+    font-size: $h3_height * .8;
+    margin: $h3_height*.5*.8 0;
+}
+
+$h4_height: 1.8rem;
+h4 {
+    font-size: $h4_height;
+    margin: $h4_height * .5 0;
 }
 
 .router-container {
@@ -21,6 +61,15 @@ header {
     flex: 0 0 auto;
 }
 
+html.mobile header {
+    flex-wrap: wrap;
+}
+
+header h3 {
+    flex-grow: 1;
+    text-align: center;
+}
+
 main {
     flex: 1 1 auto;
     width: 90%;
@@ -33,24 +82,23 @@ a.active {
     text-decoration: underline;
 }
 
+section.title-and-side-data h1 {
+    margin-bottom: $h1_height * .25;
+}
+
 .list a {
-    padding-right: 20px;
-    background: url('../../images/divider.png') right 10px center repeat-y;
+    padding-right: 2rem;
+    background: url('../../images/divider.png') right 1rem center repeat-y;
 }
 
 .list a:last-child {
     background: none;
 }
 
-header h3 {
-    flex-grow: 1;
-    text-align: center;
-}
-
 hr {
     width: 100%; //hack for flex
     border: 0;
-    border-top: 1px solid black;
+    border-top: .1rem solid black;
     margin: 0;
 }
 
@@ -61,25 +109,31 @@ section {
 }
 
 section.title-and-side-data>span {
-    padding-left: 5px;
+    padding-left: .5rem;
 }
 
 .icon.tomato {
-    width: 30px;
+    width: 3rem;
 }
 .icon.water, .icon.ruler {
-    width: 43px;
+    width: 4.3rem;
 }
 
 article h3 {
     flex-grow: 1;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 2rem;
+}
+html.mobile article h3 {
+    padding-right: 0;
 }
 
 p.description {
     font-style: italic;
     width: 75%;
+}
+html.mobile p.description {
+    width: 100%;
 }
 
 section.ghibli-details {
@@ -88,11 +142,11 @@ section.ghibli-details {
 }
 
 section.ghibli-details p {
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
 details summary {
-    padding: 10px;
+    padding: 1rem;
 }
 
 details h4 {
@@ -101,9 +155,9 @@ details h4 {
 }
 
 p.list {
-    padding-left: 20px;
+    padding-left: 2rem;
 }
 
 p.list span.divider {
-    padding: 0 10px;
+    padding: 0 1rem;
 }

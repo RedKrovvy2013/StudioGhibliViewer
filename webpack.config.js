@@ -7,25 +7,20 @@ module.exports = {
   ],
   devServer: {
     contentBase: './client/public',
-    historyApiFallback: true,
-    // inline: true
+    historyApiFallback: true
   },
   output: {
     path: path.resolve(__dirname, "client/public"),
     publicPath: "/assets/",
     filename: "bundle.js"
   },
-//   output: {
-//   path: __dirname,
-//   filename: './client/public/bundle.js'
-// },
-    externals: {
-      jquery: 'jQuery'
-    },
+    // externals: {
+    //   jquery: 'jQuery'
+    // },
     plugins: [
       new webpack.ProvidePlugin({
-        '$': 'jquery',
-        'jQuery': 'jquery'
+        $: 'jquery',
+        jQuery: 'jquery'
       })
     ],
     resolve: {
