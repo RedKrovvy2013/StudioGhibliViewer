@@ -14,7 +14,7 @@ var Vehicle = function(props) {
             <TitleAndSideData title={props.name} id={props.id}
                               farSideData={props.vehicle_class}>
                 <span>
-                    <img src="http://localhost:8080/images/ruler.png"
+                    <img src="/images/ruler.png"
                          className="icon ruler" alt="vehicle length" />
                      {props.length}
                 </span>

@@ -10,7 +10,7 @@ var Location = function(props) {
         <article>
             <TitleAndSideData title={props.name} id={props.id}>
                 <span>
-                    <img src="http://localhost:8080/images/water.png"
+                    <img src="/images/water.png"
                     className="icon water" alt="surface water" />
                     {props.surface_water}
                 </span>
